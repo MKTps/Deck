@@ -1,9 +1,70 @@
 (function(){
-    // Load floating menu include and initialize its behavior. Show menu only after slider-section
+    // Load floating menu include and initialize its behavior. Show menu only after slider-section.
+    function getFSMItemsWithTarget(container){
+        if(!container) return [];
+        return Array.from(container.querySelectorAll('.fsm-item[data-target]'));
+    }
+
+    function getActiveFSMTarget(container){
+        const navItems = getFSMItemsWithTarget(container).filter(item => !item.hasAttribute('data-download'));
+        if(navItems.length === 0) return null;
+
+        const viewportMarker = window.innerHeight * 0.35;
+        let closest = null;
+
+        navItems.forEach(item => {
+            const targetId = item.getAttribute('data-target');
+            const targetElement = targetId ? document.getElementById(targetId) : null;
+            if(!targetElement) return;
+
+            const rect = targetElement.getBoundingClientRect();
+            const containsMarker = rect.top <= viewportMarker && rect.bottom > viewportMarker;
+
+            if(containsMarker){
+                closest = { id: targetId, distance: 0, inside: true };
+                return;
+            }
+
+            if(closest && closest.inside) return;
+
+            const distance = Math.abs(rect.top - viewportMarker);
+            if(!closest || distance < closest.distance){
+                closest = { id: targetId, distance, inside: false };
+            }
+        });
+
+        return closest ? closest.id : null;
+    }
+
+    function setActiveFSMItem(container){
+        if(!container) return;
+        const activeTargetId = getActiveFSMTarget(container);
+        const items = getFSMItemsWithTarget(container);
+
+        items.forEach(item => {
+            const isDownload = item.hasAttribute('data-download');
+            const isActive = !isDownload && item.getAttribute('data-target') === activeTargetId;
+
+            item.classList.toggle('fsm-item--active', isActive);
+            item.setAttribute('aria-disabled', isActive ? 'true' : 'false');
+
+            if(isActive){
+                item.setAttribute('aria-current', 'page');
+                item.setAttribute('tabindex', '-1');
+            } else {
+                item.removeAttribute('aria-current');
+                item.setAttribute('tabindex', '0');
+            }
+        });
+    }
+
     function initFSMListeners(container){
         const items = container.querySelectorAll('.fsm-item');
         items.forEach(item=>{
             item.addEventListener('click', ()=>{
+                if(item.classList.contains('fsm-item--active') || item.getAttribute('aria-disabled') === 'true'){
+                    return;
+                }
                 const target = item.getAttribute('data-target');
                 const download = item.getAttribute('data-download');
                 if(target){
@@ -31,8 +92,18 @@
                     }
                 }
             });
-            item.addEventListener('keydown', (e)=>{ if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); item.click(); } });
+            item.addEventListener('keydown', (e)=>{
+                if(item.classList.contains('fsm-item--active') || item.getAttribute('aria-disabled') === 'true'){
+                    return;
+                }
+                if(e.key === 'Enter' || e.key === ' '){
+                    e.preventDefault();
+                    item.click();
+                }
+            });
         });
+
+        setActiveFSMItem(container);
     }
 
     let fsmLoaded = false;
@@ -125,10 +196,17 @@
         if(shouldShow){
             // show
             if(!fsmLoaded){
-                loadFSM().catch(()=>{}).then(nav=>{ if(nav){ nav.classList.remove('fsm-hidden'); nav.classList.add('fsm-visible'); } });
+                loadFSM().catch(()=>{}).then(nav=>{
+                    if(nav){
+                        nav.classList.remove('fsm-hidden');
+                        nav.classList.add('fsm-visible');
+                        setActiveFSMItem(nav);
+                    }
+                });
             } else if(fsmElement){
                 fsmElement.classList.remove('fsm-hidden');
                 fsmElement.classList.add('fsm-visible');
+                setActiveFSMItem(fsmElement);
             }
         } else {
             // hide
@@ -186,16 +264,19 @@ document.addEventListener('DOMContentLoaded', function(){
                     });
                 }
 
-                // Autonomous floating motion for orbs
+                // Lightweight opacity pulse for orbs (better performance)
                 orbs.forEach((orb, idx) => {
                     if(!orb) return;
-                    const durations = [18, 22, 24];
-                    const moves = [
-                        { x: 18, y: -12 },
-                        { x: -16, y: 18 },
-                        { x: 14, y: 10 }
-                    ];
-                    gsap.to(orb, { ...moves[idx], duration: durations[idx], ease: 'sine.inOut', yoyo: true, repeat: -1 });
+                    const durations = [2.8, 3.4, 3.9];
+                    const delays = [0, 0.5, 1];
+                    gsap.to(orb, {
+                        opacity: 0,
+                        duration: durations[idx],
+                        delay: delays[idx],
+                        ease: 'sine.inOut',
+                        yoyo: true,
+                        repeat: -1
+                    });
                 });
 
                 // Scroll-driven animations for elements with .animate-on-scroll
@@ -228,6 +309,7 @@ document.addEventListener('DOMContentLoaded', function(){
                     
                     if(elements.length > 0) {
                         elements.forEach((el, index) => {
+                            const isFeatureCard = el.classList.contains('feature-card');
                             // Parallax intensity: title moves less, buttons move more
                             const parallaxMultiplier = 1 + (index * 0.15);
                             
@@ -251,29 +333,39 @@ document.addEventListener('DOMContentLoaded', function(){
                                 }
                             );
                             
-                            // Parallax scroll effect
-                            gsap.to(el, {
-                                y: (i) => {
-                                    return (window.innerHeight - el.getBoundingClientRect().top) * 0.05 * parallaxMultiplier;
-                                },
-                                ease: 'none',
-                                scrollTrigger: {
-                                    trigger: section,
-                                    start: 'top bottom',
-                                    end: 'bottom top',
-                                    scrub: 0.5,
-                                    onUpdate: (self) => {
-                                        gsap.to(el, {
-                                            y: (self.getVelocity() * 0.02 * parallaxMultiplier),
-                                            duration: 0.5,
-                                            overwrite: 'auto',
-                                            ease: 'power2'
-                                        });
+                            // Parallax scroll effect (omit for feature cards to keep hover/float smooth)
+                            if(!isFeatureCard){
+                                gsap.to(el, {
+                                    y: () => 34 * parallaxMultiplier,
+                                    ease: 'none',
+                                    scrollTrigger: {
+                                        trigger: section,
+                                        start: 'top bottom',
+                                        end: 'bottom top',
+                                        scrub: 0.5
                                     }
-                                }
-                            });
+                                });
+                            }
                         });
                     }
+                });
+
+                // Background parallax for service and final sections
+                document.querySelectorAll('.service-detail, .commercial-card-section').forEach(section => {
+                    gsap.fromTo(section,
+                        { backgroundPosition: '50% 42%' },
+                        {
+                            backgroundPosition: '50% 62%',
+                            ease: 'none',
+                            scrollTrigger: {
+                                trigger: section,
+                                start: 'top bottom',
+                                end: 'bottom top',
+                                scrub: 0.8,
+                                anticipatePin: 1
+                            }
+                        }
+                    );
                 });
 
                 // Parallax hover for LVL GIFs inside service sections with passive mouse listeners
@@ -847,6 +939,106 @@ function initSwiper() {
             // MODAL TABS SYSTEM
             // ============================================
 
+            function animateModalActiveState(tabContent){
+                if(!tabContent) return;
+
+                tabContent.classList.remove('tab-enter');
+                void tabContent.offsetWidth;
+                tabContent.classList.add('tab-enter');
+
+                const allSlides = tabContent.querySelectorAll('.modal-slide');
+                const activeSlide = tabContent.querySelector('.modal-slide.active');
+
+                allSlides.forEach(slide => {
+                    slide.classList.remove('is-active-visual');
+                });
+
+                if(activeSlide){
+                    void activeSlide.offsetWidth;
+                    activeSlide.classList.add('is-active-visual');
+                }
+
+                if(!window.gsap) return;
+
+                const leftColumn = tabContent.querySelector('.modal-content-left');
+                const rightColumn = tabContent.querySelector('.modal-content-right');
+                const heading = activeSlide ? activeSlide.querySelector('h4') : null;
+                const text = activeSlide ? activeSlide.querySelector('p') : null;
+                const image = tabContent.querySelector('.modal-graphic-image');
+                const slideNav = tabContent.querySelector('.modal-slide__nav');
+                const slideCounter = tabContent.querySelector('.modal-slide__counter');
+
+                const slides = tabContent.querySelectorAll('.modal-slide');
+                const slideIndex = activeSlide ? Array.from(slides).indexOf(activeSlide) : 0;
+                const timingVariants = [
+                    { baseDelay: 0.02, leftDur: 0.46, slideDur: 0.5, rightDur: 0.62, textDur: 0.48, imageDur: 0.66 },
+                    { baseDelay: 0.06, leftDur: 0.54, slideDur: 0.58, rightDur: 0.7, textDur: 0.56, imageDur: 0.74 },
+                    { baseDelay: 0.1, leftDur: 0.6, slideDur: 0.64, rightDur: 0.78, textDur: 0.62, imageDur: 0.82 }
+                ];
+                const timing = timingVariants[Math.abs(slideIndex) % timingVariants.length];
+
+                const animTargets = [leftColumn, rightColumn, activeSlide, heading, text, image, slideNav, slideCounter].filter(Boolean);
+                if(animTargets.length > 0){
+                    gsap.killTweensOf(animTargets);
+                }
+
+                if(leftColumn){
+                    gsap.fromTo(leftColumn,
+                        { opacity: 0, x: -26 },
+                        { opacity: 1, x: 0, duration: timing.leftDur, delay: timing.baseDelay, ease: 'power3.out' }
+                    );
+                }
+
+                if(activeSlide){
+                    gsap.fromTo(activeSlide,
+                        { opacity: 0, y: 20, scale: 0.98 },
+                        { opacity: 1, y: 0, scale: 1, duration: timing.slideDur, delay: timing.baseDelay + 0.06, ease: 'power2.out' }
+                    );
+                }
+
+                if(heading){
+                    gsap.fromTo(heading,
+                        { opacity: 0, y: 10 },
+                        { opacity: 1, y: 0, duration: 0.36, ease: 'power2.out', delay: timing.baseDelay + 0.14 }
+                    );
+                }
+
+                if(text){
+                    gsap.fromTo(text,
+                        { opacity: 0, y: 14 },
+                        { opacity: 1, y: 0, duration: timing.textDur, ease: 'power2.out', delay: timing.baseDelay + 0.2 }
+                    );
+                }
+
+                if(slideNav){
+                    gsap.fromTo(slideNav,
+                        { opacity: 0, y: 12 },
+                        { opacity: 1, y: 0, duration: 0.38, ease: 'power2.out', delay: timing.baseDelay + 0.28 }
+                    );
+                }
+
+                if(slideCounter){
+                    gsap.fromTo(slideCounter,
+                        { opacity: 0, y: 8 },
+                        { opacity: 1, y: 0, duration: 0.34, ease: 'power2.out', delay: timing.baseDelay + 0.34 }
+                    );
+                }
+
+                if(rightColumn){
+                    gsap.fromTo(rightColumn,
+                        { opacity: 0, x: 26, scale: 0.96 },
+                        { opacity: 1, x: 0, scale: 1, duration: timing.rightDur, delay: timing.baseDelay + 0.12, ease: 'power3.out' }
+                    );
+                }
+
+                if(image){
+                    gsap.fromTo(image,
+                        { opacity: 0, x: 18, scale: 0.95 },
+                        { opacity: 1, x: 0, scale: 1, duration: timing.imageDur, ease: 'power3.out', delay: timing.baseDelay + 0.24 }
+                    );
+                }
+            }
+
             function initializeModalTabs(){
                 document.querySelectorAll('.feature-modal').forEach(modal => {
                     // Tab buttons
@@ -876,6 +1068,7 @@ function initSwiper() {
                                     else s.classList.remove('active');
                                 });
                                 updateSlideCounter(activeContent);
+                                animateModalActiveState(activeContent);
                             }
                         });
                     });
@@ -897,6 +1090,12 @@ function initSwiper() {
                             }
                         });
                     }
+
+                    const initialActive = modal.querySelector('.modal-tab__content.active');
+                    if(initialActive){
+                        updateSlideCounter(initialActive);
+                        animateModalActiveState(initialActive);
+                    }
                 });
             }
 
@@ -911,6 +1110,7 @@ function initSwiper() {
                 slides.forEach(s => s.classList.remove('active'));
                 slides[newIndex].classList.add('active');
                 updateSlideCounter(tabContent);
+                animateModalActiveState(tabContent);
             }
 
             function updateSlideCounter(tabContent){
@@ -942,12 +1142,51 @@ function initSwiper() {
                 featureModal.setAttribute('aria-hidden', 'false');
                 document.body.classList.add('no-scroll');
 
-                // Animación de apertura
-                gsap.fromTo(featureModal, { opacity: 0 }, { opacity: 1, duration: 0.4, ease: 'power2.out' });
-                gsap.fromTo(featureModal.querySelector('.feature-modal__panel'), 
-                    { transform: 'scale(0.95)', opacity: 0 }, 
-                    { transform: 'scale(1)', opacity: 1, duration: 0.6, ease: 'back.out(1.2)' }
-                );
+                const panel = featureModal.querySelector('.feature-modal__panel');
+                const backdrop = featureModal.querySelector('.feature-modal__backdrop');
+                const tabs = featureModal.querySelector('.modal-tabs');
+
+                // Animación de apertura estilo app iPhone
+                if(window.gsap){
+                    gsap.killTweensOf([featureModal, panel, backdrop, tabs]);
+
+                    const tl = gsap.timeline();
+                    tl.set(panel, {
+                        transformOrigin: 'center center',
+                        willChange: 'transform, opacity, filter, border-radius'
+                    });
+                    tl.set(tabs, { willChange: 'transform, opacity' });
+                    tl.fromTo(backdrop,
+                        { opacity: 0 },
+                        { opacity: 1, duration: 0.28, ease: 'power2.out' },
+                        0
+                    );
+                    tl.fromTo(panel,
+                        {
+                            opacity: 0,
+                            scale: 0.82,
+                            y: 34,
+                            filter: 'blur(16px)',
+                            borderRadius: '36px'
+                        },
+                        {
+                            opacity: 1,
+                            scale: 1,
+                            y: 0,
+                            filter: 'blur(0px)',
+                            borderRadius: '0px',
+                            duration: 0.62,
+                            ease: 'back.out(1.18)',
+                            clearProps: 'willChange'
+                        },
+                        0
+                    );
+                    tl.fromTo(tabs,
+                        { opacity: 0, y: 24, scale: 0.985 },
+                        { opacity: 1, y: 0, scale: 1, duration: 0.42, ease: 'power3.out', clearProps: 'willChange' },
+                        0.16
+                    );
+                }
 
                 // Abrir la pestaña correspondiente a la tarjeta seleccionada
                 const container = card.closest('.service-features');
@@ -963,20 +1202,59 @@ function initSwiper() {
                     const firstTabBtn = featureModal.querySelector('.modal-tab__btn');
                     if(firstTabBtn) firstTabBtn.click();
                 }
+
+                const activeContent = featureModal.querySelector('.modal-tab__content.active');
+                if(activeContent){
+                    setTimeout(() => {
+                        animateModalActiveState(activeContent);
+                    }, 110);
+                }
             }
 
             function closeFeatureModal(featureModal){
                 if(!featureModal) return;
 
-                gsap.to(featureModal, { opacity: 0, duration: 0.3, ease: 'power2.in' });
-                gsap.to(featureModal.querySelector('.feature-modal__panel'), 
-                    { transform: 'scale(0.95)', opacity: 0, duration: 0.4, ease: 'back.in(1.2)', 
-                      onComplete: () => {
-                        featureModal.setAttribute('aria-hidden', 'true');
-                        document.body.classList.remove('no-scroll');
-                      }
-                    }
-                );
+                const panel = featureModal.querySelector('.feature-modal__panel');
+                const backdrop = featureModal.querySelector('.feature-modal__backdrop');
+                const tabs = featureModal.querySelector('.modal-tabs');
+
+                if(window.gsap){
+                    gsap.killTweensOf([featureModal, panel, backdrop, tabs]);
+
+                    const tl = gsap.timeline({
+                        onComplete: () => {
+                            featureModal.setAttribute('aria-hidden', 'true');
+                            document.body.classList.remove('no-scroll');
+                        }
+                    });
+
+                    tl.fromTo(tabs,
+                        { opacity: 1, y: 0, scale: 1 },
+                        { opacity: 0, y: 8, scale: 0.99, duration: 0.2, ease: 'power2.in' },
+                        0
+                    );
+                    tl.fromTo(panel,
+                        { opacity: 1, scale: 1, y: 0, filter: 'blur(0px)', borderRadius: '0px' },
+                        {
+                            opacity: 0,
+                            scale: 0.86,
+                            y: 30,
+                            filter: 'blur(14px)',
+                            borderRadius: '34px',
+                            duration: 0.34,
+                            ease: 'power3.in'
+                        },
+                        0.04
+                    );
+                    tl.fromTo(backdrop,
+                        { opacity: 1 },
+                        { opacity: 0, duration: 0.28, ease: 'power2.in' },
+                        0.06
+                    );
+                } else {
+                    featureModal.setAttribute('aria-hidden', 'true');
+                    document.body.classList.remove('no-scroll');
+                }
             }
 
             // Listeners para feature cards
@@ -1494,19 +1772,25 @@ function navigateToService(containerId) {
         });
     }
 
-    // Force GIF animation on page load
-    function playGifs() {
-        document.querySelectorAll('.lvl-gif').forEach(gif => {
-            // Force browser to reload the GIF by resetting src
-            const src = gif.src;
-            gif.src = '';
-            gif.offsetHeight; // Trigger reflow
-            gif.src = src;
+    // Ensure LVL videos autoplay consistently
+    function initLvlVideos() {
+        document.querySelectorAll('video.lvl-gif').forEach(video => {
+            video.muted = true;
+            video.loop = true;
+            video.playsInline = true;
+            video.autoplay = true;
+
+            const playPromise = video.play();
+            if(playPromise && typeof playPromise.catch === 'function'){
+                playPromise.catch(() => {});
+            }
         });
     }
 
-    // Play GIFs on load
-    window.addEventListener('load', playGifs);
-    // Replay GIFs to ensure animation continues
-    setInterval(playGifs, 4000);
+    window.addEventListener('load', initLvlVideos);
+    document.addEventListener('visibilitychange', () => {
+        if(document.visibilityState === 'visible'){
+            initLvlVideos();
+        }
+    });
 })();
