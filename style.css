@@ -1,4 +1,4 @@
-﻿/* Floating service menu con efecto dock macOS horizontal centrado */
+/* Floating service menu con efecto dock macOS horizontal centrado */
 #floating-service-menu {
     position: fixed;
     left: 50%;
@@ -1588,7 +1588,12 @@ body.scroll-enabled {
     .title-area, .disc, .creative-btn--wrap { opacity: 1 !important; transform: none !important; transition: none !important; }
 }
 
-.lvl-gif{transition:transform .2s ease; will-change: transform; max-width:clamp(200px, 45vw, 420px); width:100%; height:auto; border-radius:12px;}
+.lvl-gif { transition: transform 0.2s ease; will-change: transform; max-width: clamp(200px, 45vw, 420px); width: 100%; height: auto; border-radius: 12px; animation: playGif 0.1s steps(1) infinite; }
+
+@keyframes playGif {
+    0% { opacity: 1; }
+    100% { opacity: 1; }
+}
 
 /* Responsive adjustments for LVL gifs */
 @media (max-width: 1024px) {
@@ -1803,9 +1808,9 @@ body.scroll-enabled {
     .skip-btn-text { font-size: 14px; }
     .skip-btn-circle-bg,
     .skip-btn-circle-progress { stroke-width: 3; }
-    #audio-toggle-btn { width: 60px; height: 60px; bottom: 30px; right: 160px; }
+    #audio-toggle-btn { width: 60px; height: 60px; bottom: 100px; left: 50%; transform: translateX(-50%); right: auto; }
     .audio-icon { font-size: 24px; }
-    #skip-intro-btn { bottom: 40px; right: 30px; }
+    #skip-intro-btn { bottom: 30px; left: 50%; transform: translateX(-50%); right: auto; }
 
     .swiper-content { padding: 32px 20px; }
     .title { font-size: clamp(1.5em); max-width: 100%; white-space: normal; }
@@ -1964,8 +1969,8 @@ body.scroll-enabled {
 /* Ajustes para mÃ³viles pequeÃ±os */
 @media (max-width: 480px) {
     .skip-btn-timer { width: 120px; height: 120px; }
-    #audio-toggle-btn { width: 50px; height: 50px; bottom: 20px; right: 140px; }
-    #skip-intro-btn { bottom: 30px; right: 20px; }
+    #audio-toggle-btn { width: 50px; height: 50px; bottom: 90px; left: 50%; transform: translateX(-50%); right: auto; }
+    #skip-intro-btn { bottom: 25px; left: 50%; transform: translateX(-50%); right: auto; }
     .skip-btn-text { font-size: 13px; }
     .swiper-content { padding: 20px 16px; background: rgba(0,0,0,0.45); }
     .title { font-size: clamp(20px, 8vw, 42px); max-width: 100%; white-space: normal; }
