@@ -1,4 +1,4 @@
-﻿(function(){
+(function(){
     // Load floating menu include and initialize its behavior. Show menu only after slider-section.
     function initFSMListeners(container){
         const items = container.querySelectorAll('.fsm-item');
@@ -1493,4 +1493,20 @@ function navigateToService(containerId) {
             }
         });
     }
+
+    // Force GIF animation on page load
+    function playGifs() {
+        document.querySelectorAll('.lvl-gif').forEach(gif => {
+            // Force browser to reload the GIF by resetting src
+            const src = gif.src;
+            gif.src = '';
+            gif.offsetHeight; // Trigger reflow
+            gif.src = src;
+        });
+    }
+
+    // Play GIFs on load
+    window.addEventListener('load', playGifs);
+    // Replay GIFs to ensure animation continues
+    setInterval(playGifs, 4000);
 })();
