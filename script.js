@@ -1,5 +1,5 @@
 (function(){
-    // Load floating menu include and initialize its behavior. Show menu only after slider-section.
+    // Load floating menu include and initialize its behavior. Show menu only after slider-section
     function initFSMListeners(container){
         const items = container.querySelectorAll('.fsm-item');
         items.forEach(item=>{
