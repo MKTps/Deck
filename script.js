@@ -109,13 +109,8 @@
     let fsmLoaded = false;
     let fsmElement = null;
 
-    function loadFSM(){
-        if(fsmLoaded) return Promise.resolve(fsmElement);
-
-        // Si la pÃ¡gina se sirve vÃ­a file://, fetch no funciona en muchos navegadores.
-        // En ese caso usamos un fallback inline para que funcione sin servidor.
-        if(window.location.protocol === 'file:'){
-            const html = `
+    function buildFSMHtml(){
+        return `
 <nav id="floating-service-menu" class="fsm-hidden" aria-label="Menú de servicios">
     <ul>
         <li class="fsm-item" data-target="slider-section" tabindex="0" aria-label="Home">
@@ -148,14 +143,30 @@
         </li>
     </ul>
 </nav>`;
+    }
 
-            const wrapper = document.createElement('div');
-            wrapper.innerHTML = html;
-            const nav = wrapper.querySelector('#floating-service-menu');
-            document.body.appendChild(nav);
-            fsmLoaded = true;
-            fsmElement = nav;
-            initFSMListeners(nav);
+    function createFSMFromHtml(html){
+        const wrapper = document.createElement('div');
+        wrapper.innerHTML = html;
+        const nav = wrapper.querySelector('#floating-service-menu');
+        if(!nav){
+            throw new Error('Elemento #floating-service-menu no encontrado en HTML fallback.');
+        }
+        document.body.appendChild(nav);
+        fsmLoaded = true;
+        fsmElement = nav;
+        initFSMListeners(nav);
+        return nav;
+    }
+
+    function loadFSM(){
+        if(fsmLoaded) return Promise.resolve(fsmElement);
+
+        // Si la página se sirve vía file://, fetch no funciona en muchos navegadores.
+        // En ese caso usamos un fallback inline para que funcione sin servidor.
+        if(window.location.protocol === 'file:'){
+            const html = buildFSMHtml();
+            const nav = createFSMFromHtml(html);
             return Promise.resolve(nav);
         }
 
@@ -165,17 +176,12 @@
                 return res.text();
             })
             .then(html => {
-                const wrapper = document.createElement('div');
-                wrapper.innerHTML = html;
-                const nav = wrapper.querySelector('#floating-service-menu');
-                if(nav){
-                    document.body.appendChild(nav);
-                    fsmLoaded = true;
-                    fsmElement = nav;
-                    initFSMListeners(nav);
-                    return nav;
-                }
-                throw new Error('Elemento #floating-service-menu no encontrado en include.');
+                return createFSMFromHtml(html);
+            })
+            .catch(err => {
+                // Fallback inline when include path is missing or blocked (common on local servers).
+                console.warn('Fallo al cargar include, usando fallback inline:', err);
+                return createFSMFromHtml(buildFSMHtml());
             });
     }
 
