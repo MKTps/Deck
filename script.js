@@ -1,4 +1,4 @@
-﻿(function(){
+(function(){
     // Load floating menu include and initialize its behavior. Show menu only after slider-section.
     function getFSMItemsWithTarget(container){
         if(!container) return [];
