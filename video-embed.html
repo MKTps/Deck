@@ -20,7 +20,19 @@
             display: block;
             object-fit: contain;
             border: 0;
-            background: transparent;
+            background: transparent !important;
+            background-color: transparent !important;
+            -webkit-appearance: none;
+            -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+        }
+
+        /* Safari specific fix for transparent background */
+        @supports (-webkit-appearance: none) {
+            video {
+                background: transparent !important;
+                box-shadow: none;
+            }
         }
     </style>
 </head>
@@ -41,12 +53,22 @@
             video.playsInline = true;
             video.setAttribute('playsinline', '');
             video.setAttribute('disablepictureinpicture', '');
+            
+            // Fuerza fondo transparente en Safari
+            video.style.backgroundColor = 'transparent';
+            video.style.background = 'transparent';
 
             const playPromise = video.play();
             if (playPromise && typeof playPromise.catch === 'function') {
                 playPromise.catch(() => {});
             }
         }
+        
+        // Asegura que el body tenga fondo completamente transparente
+        document.body.style.backgroundColor = 'transparent';
+        document.body.style.background = 'transparent';
+        document.documentElement.style.backgroundColor = 'transparent';
+        document.documentElement.style.background = 'transparent';
     </script>
 </body>
 </html>
