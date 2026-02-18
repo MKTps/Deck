@@ -1398,7 +1398,7 @@ body.scroll-enabled {
 
 .slider-scroll-indicator {
     position: fixed;
-    bottom: 80px;
+    bottom: 100px;
     right: 20px;
     z-index: 20000;
     width: 56px;
@@ -2998,4 +2998,5 @@ body.scroll-enabled {
     .feature-card {
         animation: none;
     }
+
 }
