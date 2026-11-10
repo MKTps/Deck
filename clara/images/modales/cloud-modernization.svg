@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 400" role="img" aria-labelledby="t">
+  <title id="t">Ruta de adopción cloud por niveles de madurez</title>
+  <circle cx="240" cy="200" r="178" fill="#EEF4FB"/>
+  <!-- Nube destino -->
+  <path d="M318 112a34 34 0 0 1 63-16 29 29 0 0 1 42 26 24 24 0 0 1-3 48h-94a29 29 0 0 1-8-58z" fill="#0072BC"/>
+  <path d="M352 134l12 12 22-22" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Escalones de madurez -->
+  <g font-family="Segoe UI, Arial, sans-serif" font-weight="700" text-anchor="middle">
+    <rect x="56" y="282" width="78" height="56" rx="10" fill="#CADCFC"/>
+    <text x="95" y="318" font-size="20" fill="#0E337C">1</text>
+    <rect x="142" y="240" width="78" height="98" rx="10" fill="#9DB8D6"/>
+    <text x="181" y="296" font-size="20" fill="#fff">2</text>
+    <rect x="228" y="198" width="78" height="140" rx="10" fill="#0072BC"/>
+    <text x="267" y="275" font-size="20" fill="#fff">3</text>
+    <rect x="314" y="190" width="78" height="148" rx="10" fill="#0E337C"/>
+    <text x="353" y="270" font-size="20" fill="#fff">4</text>
+  </g>
+  <!-- Ruta ascendente -->
+  <path d="M84 262 C 140 250, 160 214, 196 214 S 254 176, 286 170 S 330 160, 344 176" fill="none" stroke="#132436" stroke-width="4" stroke-dasharray="2 10" stroke-linecap="round"/>
+  <circle cx="84" cy="262" r="9" fill="#132436"/>
+  <circle cx="196" cy="214" r="7" fill="#fff" stroke="#132436" stroke-width="3"/>
+  <circle cx="286" cy="170" r="7" fill="#fff" stroke="#132436" stroke-width="3"/>
+  <text x="240" y="374" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="600" fill="#3F4A5A">Nivel de madurez</text>
+</svg>
