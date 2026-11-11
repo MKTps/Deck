@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 400" role="img" aria-labelledby="t">
+  <title id="t">Flujo de proceso BPMN con una tarea automatizada por un bot RPA</title>
+  <circle cx="240" cy="200" r="178" fill="#EEF4FB"/>
+  <g stroke="#9DB8D6" stroke-width="4" fill="none" stroke-linecap="round">
+    <path d="M72 170h34"/><path d="M190 170h30"/><path d="M290 170h-0"/>
+    <path d="M290 170c30 0 30-62 60-62"/><path d="M290 170c30 0 30 62 60 62"/>
+    <path d="M422 108v40M422 232v-40"/>
+  </g>
+  <!-- inicio -->
+  <circle cx="56" cy="170" r="16" fill="#fff" stroke="#0072BC" stroke-width="4"/>
+  <!-- tarea manual -->
+  <rect x="106" y="138" width="84" height="64" rx="12" fill="#fff" stroke="#0E337C" stroke-width="3"/>
+  <circle cx="148" cy="160" r="8" fill="#0E337C"/>
+  <path d="M132 188c2-10 30-10 32 0" fill="#0E337C"/>
+  <!-- gateway -->
+  <path d="M255 135l35 35-35 35-35-35z" fill="#0E337C"/>
+  <path d="M245 160l20 20M265 160l-20 20" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+  <!-- tarea automatizada (RPA) -->
+  <rect x="350" y="78" width="104" height="62" rx="12" fill="#0072BC"/>
+  <rect x="384" y="92" width="36" height="26" rx="8" fill="#fff"/>
+  <circle cx="395" cy="105" r="4" fill="#0072BC"/><circle cx="409" cy="105" r="4" fill="#0072BC"/>
+  <line x1="402" y1="92" x2="402" y2="84" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+  <text x="402" y="134" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="700" fill="#fff">RPA</text>
+  <!-- tarea sistema -->
+  <rect x="350" y="200" width="104" height="62" rx="12" fill="#fff" stroke="#0072BC" stroke-width="3"/>
+  <rect x="372" y="216" width="60" height="30" rx="4" fill="none" stroke="#0072BC" stroke-width="3"/>
+  <line x1="372" y1="225" x2="432" y2="225" stroke="#0072BC" stroke-width="3"/>
+  <!-- fin -->
+  <circle cx="422" cy="170" r="17" fill="#0072BC" stroke="#132436" stroke-width="5"/>
+  <!-- herramientas -->
+  <g font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="700" text-anchor="middle">
+    <rect x="78" y="300" width="96" height="40" rx="20" fill="#132436"/><text x="126" y="326" fill="#fff">VSM</text>
+    <rect x="192" y="300" width="96" height="40" rx="20" fill="#0E337C"/><text x="240" y="326" fill="#fff">BPMS</text>
+    <rect x="306" y="300" width="96" height="40" rx="20" fill="#0072BC"/><text x="354" y="326" fill="#fff">RPA</text>
+  </g>
+</svg>
