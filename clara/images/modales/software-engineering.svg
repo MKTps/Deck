@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 400" role="img" aria-labelledby="t">
+  <title id="t">Orquestación de agentes de IA con control central (Agentic Process Automation)</title>
+  <circle cx="240" cy="200" r="178" fill="#EEF4FB"/>
+  <circle cx="240" cy="190" r="118" fill="none" stroke="#9DB8D6" stroke-width="3" stroke-dasharray="8 10"/>
+  <g stroke="#0072BC" stroke-width="3">
+    <line x1="240" y1="190" x2="240" y2="72"/><line x1="240" y1="190" x2="352" y2="226"/>
+    <line x1="240" y1="190" x2="128" y2="226"/><line x1="240" y1="190" x2="310" y2="290"/><line x1="240" y1="190" x2="170" y2="290"/>
+  </g>
+  <!-- núcleo IA -->
+  <circle cx="240" cy="190" r="50" fill="#0072BC"/>
+  <path d="M240 158l9 22 22 9-22 9-9 22-9-22-22-9 22-9z" fill="#fff"/>
+  <!-- agentes -->
+  <g>
+    <g transform="translate(240 72)"><circle r="30" fill="#0E337C"/><rect x="-15" y="-11" width="30" height="22" rx="7" fill="#fff"/><circle cx="-6" cy="0" r="3.5" fill="#0E337C"/><circle cx="6" cy="0" r="3.5" fill="#0E337C"/></g>
+    <g transform="translate(352 226)"><circle r="30" fill="#0E337C"/><rect x="-15" y="-11" width="30" height="22" rx="7" fill="#fff"/><circle cx="-6" cy="0" r="3.5" fill="#0E337C"/><circle cx="6" cy="0" r="3.5" fill="#0E337C"/></g>
+    <g transform="translate(128 226)"><circle r="30" fill="#0E337C"/><rect x="-15" y="-11" width="30" height="22" rx="7" fill="#fff"/><circle cx="-6" cy="0" r="3.5" fill="#0E337C"/><circle cx="6" cy="0" r="3.5" fill="#0E337C"/></g>
+    <g transform="translate(310 290)"><circle r="26" fill="#132436"/><rect x="-13" y="-10" width="26" height="20" rx="6" fill="#fff"/><circle cx="-5" cy="0" r="3" fill="#132436"/><circle cx="5" cy="0" r="3" fill="#132436"/></g>
+    <g transform="translate(170 290)"><circle r="26" fill="#132436"/><rect x="-13" y="-10" width="26" height="20" rx="6" fill="#fff"/><circle cx="-5" cy="0" r="3" fill="#132436"/><circle cx="5" cy="0" r="3" fill="#132436"/></g>
+  </g>
+  <!-- panel de control de agentes -->
+  <g>
+    <rect x="34" y="66" width="128" height="76" rx="14" fill="#fff" stroke="#D9E3EF" stroke-width="2"/>
+    <rect x="50" y="84" width="38" height="18" rx="9" fill="#0072BC"/><circle cx="79" cy="93" r="6" fill="#fff"/>
+    <rect x="96" y="88" width="50" height="9" rx="4.5" fill="#CADCFC"/>
+    <rect x="50" y="112" width="38" height="18" rx="9" fill="#9DB8D6"/><circle cx="59" cy="121" r="6" fill="#fff"/>
+    <rect x="96" y="116" width="40" height="9" rx="4.5" fill="#CADCFC"/>
+  </g>
+  <text x="240" y="368" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="600" fill="#3F4A5A">Hiperautomatización con agentes</text>
+</svg>

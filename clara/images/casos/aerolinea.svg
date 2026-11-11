@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 160" role="img" aria-labelledby="t">
+  <title id="t">Avión y pase de abordar digital para reservas y check-in móvil</title>
+  <circle cx="100" cy="80" r="74" fill="#EEF4FB"/>
+  <!-- estela -->
+  <path d="M36 92c20-10 44-26 72-40" fill="none" stroke="#9DB8D6" stroke-width="4" stroke-dasharray="3 9" stroke-linecap="round"/>
+  <!-- avión -->
+  <g transform="translate(128 46) rotate(58) scale(1.05)">
+    <path d="M0-40c5 0 7 6 7 12v18l36 19v10l-36-8v18l11 8v8l-18-5-18 5v-8l11-8v-18l-36 8v-10l36-19v-18c0-6 2-12 7-12z" fill="#0072BC"/>
+    <path d="M0-40c5 0 7 6 7 12v22H-7v-22c0-6 2-12 7-12z" fill="#0E337C"/>
+  </g>
+  <!-- pase de abordar -->
+  <g>
+    <rect x="22" y="100" width="118" height="46" rx="9" fill="#fff" stroke="#D9E3EF" stroke-width="2"/>
+    <path d="M104 100v46" stroke="#D9E3EF" stroke-width="2" stroke-dasharray="4 4"/>
+    <rect x="32" y="110" width="22" height="7" rx="3.5" fill="#132436"/>
+    <path d="M60 113.5h16" stroke="#0072BC" stroke-width="3" stroke-linecap="round"/>
+    <rect x="82" y="110" width="16" height="7" rx="3.5" fill="#132436"/>
+    <rect x="32" y="125" width="44" height="5" rx="2.5" fill="#CADCFC"/>
+    <rect x="32" y="134" width="30" height="5" rx="2.5" fill="#CADCFC"/>
+    <rect x="111" y="110" width="22" height="22" rx="3" fill="#0E337C"/>
+    <rect x="115" y="114" width="6" height="6" fill="#fff"/><rect x="123" y="122" width="6" height="6" fill="#fff"/>
+    <rect x="123" y="114" width="6" height="4" fill="#fff"/><rect x="115" y="124" width="4" height="4" fill="#fff"/>
+  </g>
+</svg>

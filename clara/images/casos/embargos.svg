@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 160" role="img" aria-labelledby="t">
+  <title id="t">Documentos legales de embargo procesados a gran velocidad</title>
+  <circle cx="100" cy="80" r="74" fill="#EEF4FB"/>
+  <!-- líneas de velocidad -->
+  <g stroke="#0072BC" stroke-width="4" stroke-linecap="round" opacity=".8">
+    <path d="M22 60h22M14 80h30M24 100h20"/>
+  </g>
+  <!-- pila de documentos -->
+  <rect x="64" y="26" width="78" height="104" rx="8" fill="#CADCFC"/>
+  <rect x="54" y="34" width="78" height="104" rx="8" fill="#fff" stroke="#D9E3EF" stroke-width="2"/>
+  <rect x="66" y="48" width="40" height="7" rx="3.5" fill="#132436"/>
+  <rect x="66" y="64" width="54" height="5" rx="2.5" fill="#CADCFC"/>
+  <rect x="66" y="75" width="48" height="5" rx="2.5" fill="#CADCFC"/>
+  <rect x="66" y="86" width="54" height="5" rx="2.5" fill="#CADCFC"/>
+  <rect x="66" y="97" width="34" height="5" rx="2.5" fill="#CADCFC"/>
+  <!-- sello -->
+  <circle cx="114" cy="118" r="15" fill="#0E337C"/>
+  <path d="M107 118l5 5 9-9" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- mazo -->
+  <g transform="translate(160 70) rotate(-35)">
+    <rect x="-20" y="-11" width="40" height="22" rx="5" fill="#132436"/>
+    <rect x="-24" y="-13" width="8" height="26" rx="3" fill="#0072BC"/>
+    <rect x="16" y="-13" width="8" height="26" rx="3" fill="#0072BC"/>
+    <rect x="-4" y="11" width="8" height="40" rx="4" fill="#0E337C"/>
+  </g>
+</svg>
