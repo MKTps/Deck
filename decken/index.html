@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#0072BC">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>PersonalSoft - We make it happen</title>
+
+    <link rel="icon" type="image/png" href="https://www.personalsoft.com/wp-content/uploads/2024/03/favicon-personal-soft-150x150.png">
+    <link rel="apple-touch-icon" href="https://www.personalsoft.com/wp-content/uploads/2024/03/favicon-personal-soft-300x300.png">
+
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="preload" as="image" href="images/qs.jpg">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11.1.14/swiper-bundle.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <img src="images/logo.png" alt="PersonalSoft logo" id="logo" class="js-home-logo" width="200" height="40">
+
+    <div id="loading-overlay" aria-hidden="true"><div class="loader"></div></div>
+
+    <!-- INTRO (desktop/tablet only) -->
+    <section id="intro-section" aria-label="Intro video">
+        <div class="intro-video-container">
+            <!-- The src is set from script.js only when the intro is shown (not downloaded on mobile) -->
+            <iframe
+                id="intro-video"
+                title="PersonalSoft video"
+                data-src="https://www.youtube.com/embed/EBBGZ2j_Zwc?autoplay=1&mute=1&loop=1&playlist=EBBGZ2j_Zwc&controls=0&modestbranding=1&rel=0&enablejsapi=1&disablekb=1&fs=0&iv_load_policy=3&playsinline=1&cc_load_policy=0&color=white"
+                allow="autoplay; encrypted-media"
+                tabindex="-1"></iframe>
+        </div>
+
+        <div id="circular-transition"></div>
+
+        <button id="skip-intro-btn" class="discover-btn" type="button">
+            <span class="creative-btn__text">Skip Intro</span>
+        </button>
+
+        <button id="audio-toggle-btn" type="button" aria-label="Turn sound on">
+            <i class="fa-solid fa-volume-xmark" id="audio-icon"></i>
+        </button>
+    </section>
+
+    <!-- Bottom navigation (mobile) -->
+    <nav class="bottom-app-nav" aria-label="Bottom navigation">
+        <a href="#slider-section" class="bottom-app-nav__item" data-nav><i class="fa-solid fa-house"></i><span>Home</span></a>
+        <a href="#service-container-1" class="bottom-app-nav__item" data-nav><i class="fa-solid fa-code"></i><span>Development</span></a>
+        <a href="#service-container-2" class="bottom-app-nav__item" data-nav><i class="fa-solid fa-robot"></i><span>Automation</span></a>
+        <a href="#service-container-3" class="bottom-app-nav__item" data-nav><i class="fa-solid fa-database"></i><span>Data</span></a>
+        <a href="#service-container-4" class="bottom-app-nav__item" data-nav><i class="fa-solid fa-industry"></i><span>Models</span></a>
+        <a href="#commercial-card-section" class="bottom-app-nav__item" data-nav><i class="fa-solid fa-envelope"></i><span>Contact</span></a>
+    </nav>
+
+    <!-- SLIDER -->
+    <section id="slider-section" aria-label="Services">
+        <div class="swiper services-swiper">
+            <div class="swiper-wrapper">
+
+                <div class="swiper-slide">
+                    <div class="slider-inner">
+                        <img src="images/qs.jpg" alt="" class="slide-bg">
+                        <div class="swiper-content">
+                            <div class="title-area"><h1 class="title">Who we are</h1></div>
+                            <p class="disc">
+                                Almost <strong>30 years</strong> of experience helping solve critical business problems with tailor-made technology solutions. <br />
+                                We are <strong>900+ Softers</strong> with a <strong>global</strong> presence and offices in Colombia, Panama, El Salvador, Guatemala and the United States.
+                            </p>
+                            <div class="certifications-container">
+                                <img src="images/cmmi.png" alt="CMMI" class="cert-logo" loading="lazy">
+                                <img src="images/Icontec.png" alt="Icontec" class="cert-logo" loading="lazy">
+                                <img src="images/uipath.png" alt="UiPath" class="cert-logo" loading="lazy">
+                                <img src="images/microsoft.png" alt="Microsoft" class="cert-logo" loading="lazy">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <div class="slider-inner">
+                        <img src="images/sd.jpg" alt="" class="slide-bg" loading="lazy">
+                        <div class="swiper-content">
+                            <div class="title-area"><h2 class="title">Solutions Development</h2></div>
+                            <p class="disc">
+                                We build and modernize: software development with agile methodologies powered by our AI agents (PAP), legacy systems turned into modern, secure, cloud-ready solutions, and a cloud adoption roadmap based on your company's maturity level.
+                            </p>
+                            <div class="creative-btn--wrap">
+                                <button class="discover-btn" type="button" data-target="service-container-1"><span class="creative-btn__text">Discover more</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <div class="slider-inner">
+                        <img src="images/au.jpg" alt="" class="slide-bg" loading="lazy">
+                        <div class="swiper-content">
+                            <div class="title-area"><h2 class="title">Automation</h2></div>
+                            <p class="disc">We simplify and automate processes with VSM, BPMS, RPA and low-code tools. We take your operation to the next level with APA (Agentic Process Automation): AI strategy, hyperautomation and agent control. The result: fewer errors, more speed, and agile, intelligent and scalable operations.</p>
+                            <div class="creative-btn--wrap">
+                                <button class="discover-btn" type="button" data-target="service-container-2"><span class="creative-btn__text">Discover more</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <div class="slider-inner">
+                        <img src="images/dm.jpg" alt="" class="slide-bg" loading="lazy">
+                        <div class="swiper-content">
+                            <div class="title-area"><h2 class="title">Data Management</h2></div>
+                            <p class="disc">
+                                Data that drives decisions: reference architectures, data platforms, governance and migration; DataOps, MLOps and data engineering for advanced analytics; and process engineering with BPMN, DMAIC, Lean Six Sigma and digital twins to detect bottlenecks.
+                            </p>
+                            <div class="creative-btn--wrap">
+                                <button class="discover-btn" type="button" data-target="service-container-3"><span class="creative-btn__text">Discover more</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <div class="slider-inner">
+                        <img src="images/smart.jpg" alt="" class="slide-bg" loading="lazy">
+                        <div class="swiper-content">
+                            <div class="title-area"><h2 class="title">Delivery Models</h2></div>
+                            <p class="disc">Smart Factory: software, QA &amp; Testing and product support, end to end. AI-powered Delivery Center: we attract, assign and manage expert talent while you stay in control. Choose the model that best fits your project: Pure Agile, Agile Control or Fixed Time and Cost.</p>
+                            <div class="creative-btn--wrap">
+                                <button class="discover-btn" type="button" data-target="service-container-4"><span class="creative-btn__text">Discover more</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="swiper-button-wrapper">
+                <div class="swiper-button-prev" tabindex="0" role="button" aria-label="Previous slide"></div>
+                <div class="swiper-button-next" tabindex="0" role="button" aria-label="Next slide"></div>
+            </div>
+
+            <div class="swiper-playpause-wrapper">
+                <button class="swiper-button-playpause" id="slider-playpause" type="button" aria-label="Pause autoplay" title="Pause/Resume">
+                    <i class="fas fa-pause"></i>
+                </button>
+            </div>
+
+            <button class="slider-scroll-indicator" type="button" aria-label="Next slide">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+    </section>
+
+    <!-- SERVICE 1 -->
+    <div class="service-container" id="service-container-1">
+        <section id="service1" class="service-detail">
+            <div class="service-detail-content container">
+                <div class="row align-items-center">
+                    <div class="col-12 col-lg-6 service-text">
+                        <h2 class="service-element" data-order="1">Solutions Development</h2>
+                        <p class="service-lead service-element" data-order="3">We build, modernize and move your company's technology solutions to the cloud, with agile methodologies powered by our AI agents.</p>
+
+                        <button type="button" class="case-btn service-element" data-order="3.5"><i class="fa-solid fa-trophy"></i> See success stories</button>
+                        <div class="service-features">
+                            <button type="button" class="feature-card service-element" data-order="4">
+                                <i class="fa-solid fa-code feature-icon"></i>
+                                <h3>Software Development</h3>
+                                <p>Agile methodologies powered by our AI agents (PAP).</p>
+                            </button>
+                            <button type="button" class="feature-card service-element" data-order="4">
+                                <i class="fa-solid fa-layer-group feature-icon"></i>
+                                <h3>App Modernization</h3>
+                                <p>Legacy systems turned into modern, secure, cloud-ready solutions.</p>
+                            </button>
+                            <button type="button" class="feature-card service-element" data-order="4">
+                                <i class="fa-solid fa-cloud feature-icon"></i>
+                                <h3>Cloud Modernization</h3>
+                                <p>A cloud adoption roadmap based on each company's maturity level.</p>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-6 service-media">
+                        <img src="images/cubo-1.svg" alt="Solutions cube: the Solutions Development piece fits into level 1" class="lvl-cube service-element" data-order="2" loading="lazy" width="380" height="360">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="feature-modal" data-feature-modal aria-hidden="true" inert role="dialog" aria-modal="true" aria-label="Solutions Development">
+            <div class="feature-modal__backdrop" data-close></div>
+            <div class="feature-modal__panel">
+                <img src="images/logo_azul.png" alt="PersonalSoft logo" class="logo-mark js-home-logo" loading="lazy">
+                <button type="button" class="feature-modal__close">Go back</button>
+                <div class="feature-modal__content">
+                    <div class="modal-tabs">
+                        <div class="modal-tabs__nav" role="tablist">
+                            <button type="button" class="modal-tab__btn active" data-tab="0">Software Dev</button>
+                            <button type="button" class="modal-tab__btn" data-tab="1">Modernization</button>
+                            <button type="button" class="modal-tab__btn" data-tab="2">Cloud</button>
+                        </div>
+                        <div class="modal-tabs__content">
+                            <div class="modal-tab__content active" data-tab-panel="0">
+                                <div class="modal-content-wrapper">
+                                    <div class="modal-content-left">
+                                        <h3>Software Development</h3>
+                                        <div class="modal-tab__slides">
+                                            <div class="modal-slide active">
+                                                <h4>What we do</h4>
+                                                <p>Agile methodologies powered by our AI agents (PAP).</p>
+                                            </div>
+                                            <div class="modal-slide">
+                                                <h4>Outcome</h4>
+                                                <p>Shorter development time · Quality · Resource optimization</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-content-right">
+                                        <img src="images/modales/software-development.svg" alt="Code editor with an AI agent and a continuous integration pipeline" class="modal-graphic-image" loading="lazy">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-tab__content" data-tab-panel="1">
+                                <div class="modal-content-wrapper">
+                                    <div class="modal-content-left">
+                                        <h3>App Modernization</h3>
+                                        <div class="modal-tab__slides">
+                                            <div class="modal-slide active">
+                                                <h4>What we do</h4>
+                                                <p>Legacy systems turned into modern, secure, cloud-ready solutions.</p>
+                                            </div>
+                                            <div class="modal-slide">
+                                                <h4>Outcome</h4>
+                                                <p>Scalability · Security · Cost efficiency</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-content-right">
+                                        <img src="images/modales/app-modernization.svg" alt="Legacy system transformed into modern, secure microservices in the cloud" class="modal-graphic-image" loading="lazy">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-tab__content" data-tab-panel="2">
+                                <div class="modal-content-wrapper">
+                                    <div class="modal-content-left">
+                                        <h3>Cloud Modernization</h3>
+                                        <div class="modal-tab__slides">
+                                            <div class="modal-slide active">
+                                                <h4>What we do</h4>
+                                                <p>A cloud adoption roadmap based on each company's maturity level.</p>
+                                            </div>
+                                            <div class="modal-slide">
+                                                <h4>Outcome</h4>
+                                                <p>Elasticity · Lower costs · Faster deployment</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-content-right">
+                                        <img src="images/modales/cloud-modernization.svg" alt="Cloud adoption roadmap by maturity level" class="modal-graphic-image" loading="lazy">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="button" class="modal-nav-button modal-nav-button--prev" aria-label="Previous"><i class="fa-solid fa-chevron-left"></i></button>
+                        <button type="button" class="modal-nav-button modal-nav-button--next" aria-label="Next"><i class="fa-solid fa-chevron-right"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Success stories · Solutions Development -->
+        <div class="feature-modal case-modal" data-case-modal aria-hidden="true" inert role="dialog" aria-modal="true" aria-label="Success stories · Solutions Development">
+            <div class="feature-modal__backdrop" data-close></div>
+            <div class="feature-modal__panel">
+                <img src="images/logo_azul.png" alt="PersonalSoft logo" class="logo-mark js-home-logo" loading="lazy">
+                <button type="button" class="feature-modal__close">Go back</button>
+                <div class="feature-modal__content">
+                    <div class="modal-tabs">
+                        <p class="case-modal__eyebrow">Success stories · Solutions Development</p>
+                        <div class="modal-tabs__nav" role="tablist">
+                            <button type="button" class="modal-tab__btn active" data-tab="0">Retail</button>
+                            <button type="button" class="modal-tab__btn" data-tab="1">Sports streaming</button>
+                            <button type="button" class="modal-tab__btn" data-tab="2">Sustainable mobility</button>
+                            <button type="button" class="modal-tab__btn" data-tab="3">Airline</button>
+                        </div>
+                        <div class="modal-tabs__content">
+                            <div class="modal-tab__content active" data-tab-panel="0">
+                                <div class="modal-content-wrapper">
+                                    <p class="case-category"><i class="fa-solid fa-bag-shopping"></i> Retail</p>
+                                    <div class="modal-content-left">
+                                        <div class="case-head"><img src="images/casos/retail.svg" alt="Sales catalog turned into an app with a shopping cart" class="case-illus" loading="lazy" width="200" height="160"><h3>353,000 sales representatives moved to a digital platform</h3></div>
+                                        <div class="modal-tab__slides">
+                                            <div class="modal-slide active">
+                                                <h4>1 · The starting point</h4>
+                                                <p>A Colombian underwear brand present in 16 countries wanted to take its catalog sales, with more than 353,000 representatives, to a digital platform.</p>
+                                            </div>
+                                            <div class="modal-slide">
+                                                <h4>2 · The challenge</h4>
+                                                <p>The goal: a modern digital channel without weakening its sales network.</p>
+                                            </div>
+                                            <div class="modal-slide">
+                                                <h4>3 · How we helped</h4>
+                                                <p>With a team of 22 people, over 14 months (21,000 hours), we built a robust web app with payments, cross-selling, order tracking and incentives.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-content-right case-results">
+                                        <h4 class="case-results__title">The outcome</h4>
+                                        <ul class="case-stats">
+                                            <li><strong>48,000+</strong><span>monthly orders processed</span></li>
+                                            <li><strong>+3%</strong><span>in last-minute sales</span></li>
+                                            <li><strong>106</strong><span>experience touchpoints optimized</span></li>
+                                            <li><strong>USD 44M</strong><span>supported annually, 30% from the U.S.</span></li>
+                                            <li><strong>92% → 98%</strong><span>code coverage, no critical defects in Java</span></li>
+                                            <li><strong>43 epics</strong><span>and 285 stories delivered in 5 releases</span></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-tab__content" data-tab-panel="1">
+                                <div class="modal-content-wrapper">
+                                    <p class="case-category"><i class="fa-solid fa-tv"></i> Sports streaming</p>
+                                    <div class="modal-content-left">
+                                        <div class="case-head"><img src="images/casos/streaming.svg" alt="Sports streaming platform that integrates three applications" class="case-illus" loading="lazy" width="200" height="160"><h3>3 internal applications needed to be integrated</h3></div>
+                                        <div class="modal-tab__slides">
+                                            <div class="modal-slide active">
+                                                <h4>1 · The starting point</h4>
+                                                <p>A global sports streaming platform needed a web application to manage internal sub-applications with different scopes.</p>
+                                            </div>
+                                            <div class="modal-slide">
+                                                <h4>2 · The challenge</h4>
+                                                <p>It needed a solid architecture to integrate applications and grow without conflicts.</p>
+                                            </div>
+                                            <div class="modal-slide">
+                                                <h4>3 · How we helped</h4>
+                                                <p>We took the project from zero to production with SSR and rigorous CI/CD practices.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-content-right case-results">
+                                        <h4 class="case-results__title">The outcome</h4>
+                                        <ul class="case-list">
+                                            <li>3 sports apps built on clean, enterprise-grade code.</li>
+                                            <li>A highly reliable system, always production-ready.</li>
+                                            <li>Supports multiple apps without losing performance.</li>
+                                            <li>Continuous, reliable deployments with CI/CD.</li>
+                                            <li>A scalable architecture that is sustainable over time.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-tab__content" data-tab-panel="2">
+                                <div class="modal-content-wrapper">
+                                    <p class="case-category"><i class="fa-solid fa-person-biking"></i> Sustainable mobility</p>
+                                    <div class="modal-content-left">
+                                        <div class="case-head"><img src="images/casos/movilidad.svg" alt="Bicycle with a recorded GPS route and sustainable mobility" class="case-illus" loading="lazy" width="200" height="160"><h3>A new app that brought in 727,000 new cyclists</h3></div>
+                                        <div class="modal-tab__slides">
+                                            <div class="modal-slide active">
+                                                <h4>1 · The starting point</h4>
+                                                <p>A global sustainable mobility platform with trip logging, CO₂ calculation, contests and a collaborative route map needed to create an app with a robust experience.</p>
+                                            </div>
+                                            <div class="modal-slide">
+                                                <h4>2 · The challenge</h4>
+                                                <p>To reach more users, the platform needed to bring its app to Android with a robust experience true to its mission.</p>
+                                            </div>
+                                            <div class="modal-slide">
+                                                <h4>3 · How we helped</h4>
+                                                <p>We built the Android version with Flutter and native code, including GPS tracking, route rating and automated QA.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-content-right case-results">
+                                        <h4 class="case-results__title">The outcome</h4>
+                                        <ul class="case-stats">
+                                            <li><strong>+70%</strong><span>new users after the Android launch</span></li>
+                                            <li><strong>727,000</strong><span>people in the community</span></li>
+                                            <li><strong>42,000</strong><span>companies on board</span></li>
+                                            <li><strong>24M+</strong><span>trips logged</span></li>
+                                            <li><strong>GPS</strong><span>personal statistics with GPS tracking</span></li>
+                                            <li><strong>Global</strong><span>boost to sustainable mobility</span></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-tab__content" data-tab-panel="3">
+                                <div class="modal-content-wrapper">
+                                    <p class="case-category"><i class="fa-solid fa-plane"></i> Airline</p>
+                                    <div class="modal-content-left">
+                                        <div class="case-head"><img src="images/casos/aerolinea.svg" alt="Airplane and digital boarding pass for bookings and mobile check-in" class="case-illus" loading="lazy" width="200" height="160"><h3>Booking and check-in, Mobile First</h3></div>
+                                        <div class="modal-tab__slides">
+                                            <div class="modal-slide active">
+                                                <h4>1 · The starting point</h4>
+                                                <p>A Colombian low-cost airline needed to modernize with digital products to manage bookings and Web Check-in.</p>
+                                            </div>
+                                            <div class="modal-slide">
+                                                <h4>2 · The challenge</h4>
+                                                <p>They had to scale, optimize sales and check-in, strengthen security and improve the mobile experience.</p>
+                                            </div>
+                                            <div class="modal-slide">
+                                                <h4>3 · How we helped</h4>
+                                                <p>With microservices and micro frontends, we renewed booking management and check-in, with self-service and payments from any device.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-content-right case-results">
+                                        <h4 class="case-results__title">The outcome</h4>
+                                        <ul class="case-list">
+                                            <li>Better performance with a Mobile First approach.</li>
+                                            <li>A unified experience across web and mobile.</li>
+                                            <li>New payment methods enabled.</li>
+                                            <li>Optimized sales management and higher revenue.</li>
+                                            <li>A technology foundation ready to scale.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="button" class="modal-nav-button modal-nav-button--prev" aria-label="Previous"><i class="fa-solid fa-chevron-left"></i></button>
+                        <button type="button" class="modal-nav-button modal-nav-button--next" aria-label="Next"><i class="fa-solid fa-chevron-right"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SERVICE 2 -->
+    <div class="service-container" id="service-container-2">
+        <section id="service2" class="service-detail">
+            <div class="service-detail-content container">
+                <div class="row align-items-center">
+                    <div class="col-12 col-lg-6 service-text">
+                        <h2 class="service-element" data-order="1">Automation</h2>
+                        <p class="service-lead service-element" data-order="3">We simplify and automate processes, and scale toward hyperautomation with AI agents to achieve agile, intelligent and scalable operations.</p>
+
+                        <button type="button" class="case-btn service-element" data-order="3.5"><i class="fa-solid fa-trophy"></i> See success stories</button>
+                        <div class="service-features">
+                            <button type="button" class="feature-card service-element" data-order="4">
+                                <i class="fa-solid fa-diagram-project feature-icon"></i>
+                                <h3>Process Engineering</h3>
+                                <p>VSM, BPMS and RPA to simplify and automate processes.</p>
+                            </button>
+                            <button type="button" class="feature-card service-element" data-order="4">
+                                <i class="fa-solid fa-robot feature-icon"></i>
+                                <h3>Software Engineering</h3>
+                                <p>With APA (Agentic Process Automation): AI strategy, hyperautomation and agent control.</p>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-6 service-media">
+                        <img src="images/cubo-2.svg" alt="Solutions cube: the Automation piece fits into level 2" class="lvl-cube service-element" data-order="2" loading="lazy" width="380" height="360">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="feature-modal" data-feature-modal aria-hidden="true" inert role="dialog" aria-modal="true" aria-label="Automation">
+            <div class="feature-modal__backdrop" data-close></div>
+            <div class="feature-modal__panel">
+                <img src="images/logo_azul.png" alt="PersonalSoft logo" class="logo-mark js-home-logo" loading="lazy">
+                <button type="button" class="feature-modal__close">Go back</button>
+                <div class="feature-modal__content">
+                    <div class="modal-tabs">
+                        <div class="modal-tabs__nav" role="tablist">
+                            <button type="button" class="modal-tab__btn active" data-tab="0">Process Engineering</button>
+                            <button type="button" class="modal-tab__btn" data-tab="1">Software Engineering</button>
+                        </div>
+                        <div class="modal-tabs__content">
+                            <div class="modal-tab__content active" data-tab-panel="0">
+                                <div class="modal-content-wrapper">
+                                    <div class="modal-content-left">
+                                        <h3>Process Engineering</h3>
+                                        <div class="modal-tab__slides">
+                                            <div class="modal-slide active">
+                                                <h4>What we do</h4>
+                                                <p>VSM, BPMS and RPA to simplify and automate processes.</p>
+                                            </div>
+                                            <div class="modal-slide">
+                                                <h4>Outcome</h4>
+                                                <p>Fewer errors · More speed · Systems integration</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-content-right">
+                                        <img src="images/modales/process-engineering.svg" alt="BPMN process flow with a task automated by an RPA bot" class="modal-graphic-image" loading="lazy">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-tab__content" data-tab-panel="1">
+                                <div class="modal-content-wrapper">
+                                    <div class="modal-content-left">
+                                        <h3>Software Engineering</h3>
+                                        <div class="modal-tab__slides">
+                                            <div class="modal-slide active">
+                                                <h4>What we do</h4>
+                                                <p>With APA (Agentic Process Automation): AI strategy, hyperautomation and agent control.</p>
+                                            </div>
+                                            <div class="modal-slide">
+                                                <h4>Outcome</h4>
+                                                <p>Agile, intelligent and scalable operations</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-content-right">
+                                        <img src="images/modales/software-engineering.svg" alt="Orchestration of AI agents with central control" class="modal-graphic-image" loading="lazy">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="button" class="modal-nav-button modal-nav-button--prev" aria-label="Previous"><i class="fa-solid fa-chevron-left"></i></button>
+                        <button type="button" class="modal-nav-button modal-nav-button--next" aria-label="Next"><i class="fa-solid fa-chevron-right"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Success stories · Automation -->
+        <div class="feature-modal case-modal" data-case-modal aria-hidden="true" inert role="dialog" aria-modal="true" aria-label="Success stories · Automation">
+            <div class="feature-modal__backdrop" data-close></div>
+            <div class="feature-modal__panel">
+                <img src="images/logo_azul.png" alt="PersonalSoft logo" class="logo-mark js-home-logo" loading="lazy">
+                <button type="button" class="feature-modal__close">Go back</button>
+                <div class="feature-modal__content">
+                    <div class="modal-tabs">
+                        <p class="case-modal__eyebrow">Success stories · Automation</p>
+                        <div class="modal-tabs__nav" role="tablist">
+                            <button type="button" class="modal-tab__btn active" data-tab="0">Account opening</button>
+                            <button type="button" class="modal-tab__btn" data-tab="1">Garnishments</button>
+                            <button type="button" class="modal-tab__btn" data-tab="2">Ticket classification</button>
+                            <button type="button" class="modal-tab__btn" data-tab="3">Power Platform migration</button>
+                        </div>
+                        <div class="modal-tabs__content">
+                            <div class="modal-tab__content active" data-tab-panel="0">
+                                <div class="modal-content-wrapper">
+                                    <p class="case-category"><i class="fa-solid fa-id-card"></i> Account opening</p>
+                                    <div class="modal-content-left">
+                                        <div class="case-head"><img src="images/casos/apertura-cuenta.svg" alt="ID document automatically validated with AI" class="case-illus" loading="lazy" width="200" height="160"><h3>Opening a digital account faster</h3></div>
+                                        <div class="modal-tab__slides">
+                                            <div class="modal-slide active">
+                                                <h4>1 · The starting point</h4>
+                                                <p>Opening a digital account required manually validating documents such as invoices, IDs, employment letters and tax returns.</p>
+                                            </div>
+                                            <div class="modal-slide">
+                                                <h4>2 · The challenge</h4>
+                                                <p>Processing each document by hand dragged out turnaround times just as customers were having their first digital experience.</p>
+                                            </div>
+                                            <div class="modal-slide">
+                                                <h4>3 · How we helped</h4>
+                                                <p>We added AI capabilities tailored to each document type for automatic, accurate extraction.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-content-right case-results">
+                                        <h4 class="case-results__title">The result</h4>
+                                        <ul class="case-list">
+                                            <li>Shorter document validation time.</li>
+                                            <li>Automated document analysis.</li>
+                                            <li>A better customer experience in the digital channel.</li>
+                                            <li>Delivered in 3 months by an agile team.</li>
+                                            <li>Power Automate + AI Builder serving the process.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-tab__content" data-tab-panel="1">
+                                <div class="modal-content-wrapper">
+                                    <p class="case-category"><i class="fa-solid fa-gavel"></i> Garnishments</p>
+                                    <div class="modal-content-left">
+                                        <div class="case-head"><img src="images/casos/embargos.svg" alt="Legal garnishment documents processed at high speed" class="case-illus" loading="lazy" width="200" height="160"><h3>Intelligent garnishment automation</h3></div>
+                                        <div class="modal-tab__slides">
+                                            <div class="modal-slide active">
+                                                <h4>1 · The starting point</h4>
+                                                <p>More than 6 legal analysts manually reviewed about 105,000 legal and garnishment requests a month, in different formats.</p>
+                                            </div>
+                                            <div class="modal-slide">
+                                                <h4>2 · The challenge</h4>
+                                                <p>With demand growing, the manual process put the 3-to-5-day SLAs at risk and exposed the company to errors and penalties.</p>
+                                            </div>
+                                            <div class="modal-slide">
+                                                <h4>3 · How we helped</h4>
+                                                <p>We automated the process with Power Automate, AI Builder, GPT Prompt and Power Apps: intake from Outlook, intelligent extraction and standardized legal data.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-content-right case-results">
+                                        <h4 class="case-results__title">The outcome</h4>
+                                        <ul class="case-stats">
+                                            <li><strong>7 min → sec.</strong><span>per document</span></li>
+                                            <li><strong>14x</strong><span>faster process</span></li>
+                                            <li><strong>90%</strong><span>fewer data entry and classification errors</span></li>
+                                            <li><strong>6 FTE</strong><span>freed from bulk processing</span></li>
+                                            <li><strong>87% ROI</strong><span>USD 32,000 saved in the first year</span></li>
+                                            <li><strong>SLA</strong><span>better compliance and fewer penalties</span></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-tab__content" data-tab-panel="2">
+                                <div class="modal-content-wrapper">
+                                    <p class="case-category"><i class="fa-solid fa-ticket"></i> Ticket classification</p>
+                                    <div class="modal-content-left">
+                                        <div class="case-head"><img src="images/casos/tickets.svg" alt="Tickets automatically sorted into categories by AI" class="case-illus" loading="lazy" width="200" height="160"><h3>Intelligent ticket extraction and classification</h3></div>
+                                        <div class="modal-tab__slides">
+                                            <div class="modal-slide active">
+                                                <h4>1 · The starting point</h4>
+                                                <p>At a well-known financial institution, official letters arrived as Zendesk tickets, and the team had to read, interpret and classify each one manually.</p>
+                                            </div>
+                                            <div class="modal-slide">
+                                                <h4>2 · The challenge</h4>
+                                                <p>Reviewing and categorizing each document by hand took time and exposed the process to classification errors and inconsistencies.</p>
+                                            </div>
+                                            <div class="modal-slide">
+                                                <h4>3 · How we helped</h4>
+                                                <p>We automated the full flow in N8N: letter extraction, AI classification, an internal note with the category and metrics on a dashboard. From the Zendesk ticket to the categorized letter, end to end.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-content-right case-results">
+                                        <h4 class="case-results__title">The outcome</h4>
+                                        <ul class="case-stats">
+                                            <li><strong>85%</strong><span>AI accuracy vs. human classification</span></li>
+                                            <li><strong>-60%</strong><span>triage time: from hours to seconds</span></li>
+                                            <li><strong>&lt; 10 s</strong><span>per ticket, from Zendesk to categorized</span></li>
+                                            <li><strong>95%</strong><span>N8N runs with no intervention</span></li>
+                                            <li><strong>5%</strong><span>unclassified types (previously ~30%)</span></li>
+                                            <li><strong>100%</strong><span>audited decisions</span></li>
+                                            <li><strong>0</strong><span>missed deadlines</span></li>
+                                            <li><strong>15%</strong><span>human correction rate</span></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-tab__content" data-tab-panel="3">
+                                <div class="modal-content-wrapper">
+                                    <p class="case-category"><i class="fa-solid fa-diagram-project"></i> Power Platform migration</p>
+                                    <div class="modal-content-left">
+                                        <div class="case-head"><img src="images/casos/migracion.svg" alt="Workflows migrated to a modern, governed platform" class="case-illus" loading="lazy" width="200" height="160"><h3>Secure, sustainable automation</h3></div>
+                                        <div class="modal-tab__slides">
+                                            <div class="modal-slide active">
+                                                <h4>1 · The starting point</h4>
+                                                <p>A Colombian financial leader had to migrate 250+ critical workflows from Bizagi to Power Platform due to high licensing costs and operational limitations.</p>
+                                            </div>
+                                            <div class="modal-slide">
+                                                <h4>2 · The challenge</h4>
+                                                <p>The challenge went beyond the technical migration: processes had to be redesigned with quality, security and governance, without slowing down operations.</p>
+                                            </div>
+                                            <div class="modal-slide">
+                                                <h4>3 · How we helped</h4>
+                                                <p>We designed and implemented a migration to Power Platform with agile cells, governance and ongoing support.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-content-right case-results">
+                                        <h4 class="case-results__title">The outcome</h4>
+                                        <ul class="case-list">
+                                            <li>Lower licensing costs.</li>
+                                            <li>Modernization and operational efficiency.</li>
+                                            <li>Governance and traceability over the new workflows.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="button" class="modal-nav-button modal-nav-button--prev" aria-label="Previous"><i class="fa-solid fa-chevron-left"></i></button>
+                        <button type="button" class="modal-nav-button modal-nav-button--next" aria-label="Next"><i class="fa-solid fa-chevron-right"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SERVICE 3 -->
+    <div class="service-container" id="service-container-3">
+        <section id="service3" class="service-detail">
+            <div class="service-detail-content container">
+                <div class="row align-items-center">
+                    <div class="col-12 col-lg-6 service-text">
+                        <h2 class="service-element" data-order="1">Data Management</h2>
+                        <p class="service-lead service-element" data-order="3">Data that drives decisions: we process, govern and analyze your business information so it is available, reliable and turned into better decisions.</p>
+
+                        <button type="button" class="case-btn service-element" data-order="3.5"><i class="fa-solid fa-trophy"></i> See success stories</button>
+                        <div class="service-features">
+                            <button type="button" class="feature-card service-element" data-order="4">
+                                <i class="fa-solid fa-shield-halved feature-icon"></i>
+                                <h3>Data Governance</h3>
+                                <p>Reference architectures, data platforms, governance and migration.</p>
+                            </button>
+                            <button type="button" class="feature-card service-element" data-order="4">
+                                <i class="fa-solid fa-chart-line feature-icon"></i>
+                                <h3>Data Analytics</h3>
+                                <p>DataOps, MLOps and data engineering for advanced analytics.</p>
+                            </button>
+                            <button type="button" class="feature-card service-element" data-order="4">
+                                <i class="fa-solid fa-network-wired feature-icon"></i>
+                                <h3>Process Engineering</h3>
+                                <p>We detect bottlenecks with BPMN, DMAIC, Lean Six Sigma and digital twins.</p>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-6 service-media">
+                        <img src="images/cubo-3.svg" alt="Solutions cube: the Data Management piece fits into level 3" class="lvl-cube service-element" data-order="2" loading="lazy" width="380" height="360">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="feature-modal" data-feature-modal aria-hidden="true" inert role="dialog" aria-modal="true" aria-label="Data Management">
+            <div class="feature-modal__backdrop" data-close></div>
+            <div class="feature-modal__panel">
+                <img src="images/logo_azul.png" alt="PersonalSoft logo" class="logo-mark js-home-logo" loading="lazy">
+                <button type="button" class="feature-modal__close">Go back</button>
+                <div class="feature-modal__content">
+                    <div class="modal-tabs">
+                        <div class="modal-tabs__nav" role="tablist">
+                            <button type="button" class="modal-tab__btn active" data-tab="0">Data Governance</button>
+                            <button type="button" class="modal-tab__btn" data-tab="1">Data Analytics</button>
+                            <button type="button" class="modal-tab__btn" data-tab="2">Process Mining</button>
+                        </div>
+                        <div class="modal-tabs__content">
+                            <div class="modal-tab__content active" data-tab-panel="0">
+                                <div class="modal-content-wrapper">
+                                    <div class="modal-content-left">
+                                        <h3>Data Governance</h3>
+                                        <div class="modal-tab__slides">
+                                            <div class="modal-slide active">
+                                                <h4>What we do</h4>
+                                                <p>Reference architectures, data platforms, governance and migration.</p>
+                                            </div>
+                                            <div class="modal-slide">
+                                                <h4>Outcome</h4>
+                                                <p>Available information · Better decisions · Data quality</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-content-right">
+                                        <img src="images/modales/data-processing.svg" alt="Data sources migrated to a governed data platform" class="modal-graphic-image" loading="lazy">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-tab__content" data-tab-panel="1">
+                                <div class="modal-content-wrapper">
+                                    <div class="modal-content-left">
+                                        <h3>Data Analytics</h3>
+                                        <div class="modal-tab__slides">
+                                            <div class="modal-slide active">
+                                                <h4>What we do</h4>
+                                                <p>DataOps, MLOps and data engineering for advanced analytics.</p>
+                                            </div>
+                                            <div class="modal-slide">
+                                                <h4>Outcome</h4>
+                                                <p>Less time and cost · Reliability · Data monetization</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-content-right">
+                                        <img src="images/modales/data-analytics.svg" alt="Advanced analytics dashboard with machine learning models" class="modal-graphic-image" loading="lazy">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-tab__content" data-tab-panel="2">
+                                <div class="modal-content-wrapper">
+                                    <div class="modal-content-left">
+                                        <h3>Process Mining</h3>
+                                        <div class="modal-tab__slides">
+                                            <div class="modal-slide active">
+                                                <h4>What we do</h4>
+                                                <p>We detect bottlenecks with BPMN, DMAIC, Lean Six Sigma and digital twins.</p>
+                                            </div>
+                                            <div class="modal-slide">
+                                                <h4>Outcome</h4>
+                                                <p>Better performance · Intelligent automation</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-content-right">
+                                        <img src="images/modales/process-mining.svg" alt="Process map with a magnifying glass detecting a bottleneck" class="modal-graphic-image" loading="lazy">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="button" class="modal-nav-button modal-nav-button--prev" aria-label="Previous"><i class="fa-solid fa-chevron-left"></i></button>
+                        <button type="button" class="modal-nav-button modal-nav-button--next" aria-label="Next"><i class="fa-solid fa-chevron-right"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Success stories · Data Management -->
+        <div class="feature-modal case-modal" data-case-modal aria-hidden="true" inert role="dialog" aria-modal="true" aria-label="Success stories · Data Management">
+            <div class="feature-modal__backdrop" data-close></div>
+            <div class="feature-modal__panel">
+                <img src="images/logo_azul.png" alt="PersonalSoft logo" class="logo-mark js-home-logo" loading="lazy">
+                <button type="button" class="feature-modal__close">Go back</button>
+                <div class="feature-modal__content">
+                    <div class="modal-tabs">
+                        <p class="case-modal__eyebrow">Success stories · Data Management</p>
+                        <div class="modal-tabs__nav" role="tablist">
+                            <button type="button" class="modal-tab__btn active" data-tab="0">Healthcare · Prediction</button>
+                            <button type="button" class="modal-tab__btn" data-tab="1">Clinical efficiency</button>
+                            <button type="button" class="modal-tab__btn" data-tab="2">Insurance</button>
+                        </div>
+                        <div class="modal-tabs__content">
+                            <div class="modal-tab__content active" data-tab-panel="0">
+                                <div class="modal-content-wrapper">
+                                    <p class="case-category"><i class="fa-solid fa-heart-pulse"></i> Healthcare · Prediction</p>
+                                    <div class="modal-content-left">
+                                        <div class="case-head"><img src="images/casos/salud-prediccion.svg" alt="Predictive risk model for patient care" class="case-illus" loading="lazy" width="200" height="160"><h3>Prediction that transforms lives</h3></div>
+                                        <div class="modal-tab__slides">
+                                            <div class="modal-slide active">
+                                                <h4>1 · Client and context</h4>
+                                                <p>A healthcare provider specializing in high-cost diseases needed to anticipate adverse outcomes in patients with rheumatoid arthritis.</p>
+                                            </div>
+                                            <div class="modal-slide">
+                                                <h4>2 · Challenge</h4>
+                                                <p>Develop a predictive model to intervene in time, improve care and reduce costs for patients with rheumatoid arthritis.</p>
+                                            </div>
+                                            <div class="modal-slide">
+                                                <h4>3 · What we did at PersonalSoft</h4>
+                                                <p>We analyzed the variables that affect this disease and, using anonymized data, built two models that classify patients by risk. With the Airflow platform, we ensured automated execution, scalability and repeatability of the predictive process.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-content-right case-results">
+                                        <h4 class="case-results__title">Results</h4>
+                                        <ul class="case-list">
+                                            <li>Lower treatment costs thanks to more accurate risk prediction.</li>
+                                            <li>Proactive patient care ahead of possible complications.</li>
+                                            <li>Resources allocated more efficiently based on each patient's risk.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-tab__content" data-tab-panel="1">
+                                <div class="modal-content-wrapper">
+                                    <p class="case-category"><i class="fa-solid fa-hospital"></i> Clinical efficiency</p>
+                                    <div class="modal-content-left">
+                                        <div class="case-head"><img src="images/casos/eficiencia-clinica.svg" alt="Reports from a clinic's departments integrated into a dashboard" class="case-illus" loading="lazy" width="200" height="160"><h3>Data-driven clinical efficiency</h3></div>
+                                        <div class="modal-tab__slides">
+                                            <div class="modal-slide active">
+                                                <h4>1 · Client and context</h4>
+                                                <p>A well-known medical institution wanted to integrate its departments' reports to analyze its operations, improve institutional performance and reduce medical costs.</p>
+                                            </div>
+                                            <div class="modal-slide">
+                                                <h4>2 · Challenge</h4>
+                                                <p>Gain a more cross-functional view of its performance to reduce medical costs and make better decisions.</p>
+                                            </div>
+                                            <div class="modal-slide">
+                                                <h4>3 · What we did at PersonalSoft</h4>
+                                                <p>We provided key profiles in data systems design and ETL processes, with end-to-end management of strategic data programs and the mapping and optimization of information processes.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-content-right case-results">
+                                        <h4 class="case-results__title">Results</h4>
+                                        <ul class="case-list">
+                                            <li>Strategic talent brought on board in time to drive critical initiatives.</li>
+                                            <li>More efficient operations and more reliable cross-department reports.</li>
+                                            <li>Greater analytical capacity to decide how to reduce medical costs.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-tab__content" data-tab-panel="2">
+                                <div class="modal-content-wrapper">
+                                    <p class="case-category"><i class="fa-solid fa-shield-heart"></i> Insurance</p>
+                                    <div class="modal-content-left">
+                                        <div class="case-head"><img src="images/casos/aseguradora.svg" alt="Insurance with self-service claims and tracking from a mobile phone" class="case-illus" loading="lazy" width="200" height="160"><h3>An experience with speed, control and trust</h3></div>
+                                        <div class="modal-tab__slides">
+                                            <div class="modal-slide active">
+                                                <h4>1 · Client and context</h4>
+                                                <p>A leading insurer in Colombia had claims scattered across products and channels, with little control and a limited policyholder experience.</p>
+                                            </div>
+                                            <div class="modal-slide">
+                                                <h4>2 · Challenge</h4>
+                                                <p>Create a self-service digital platform for claims in one place, with transparency, speed and access from any device.</p>
+                                            </div>
+                                            <div class="modal-slide">
+                                                <h4>3 · What PersonalSoft did</h4>
+                                                <p>We set up a squad specialized in backend development and ran automated tests to ensure quality and scalability.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-content-right case-results">
+                                        <h4 class="case-results__title">Results</h4>
+                                        <ul class="case-list">
+                                            <li><b>Everything in one place:</b> centralized information and forms.</li>
+                                            <li><b>Transparency and traceability:</b> real-time claim tracking.</li>
+                                            <li><b>Multi-platform access:</b> available on any device.</li>
+                                            <li><b>More speed:</b> faster payments and reimbursements.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="button" class="modal-nav-button modal-nav-button--prev" aria-label="Previous"><i class="fa-solid fa-chevron-left"></i></button>
+                        <button type="button" class="modal-nav-button modal-nav-button--next" aria-label="Next"><i class="fa-solid fa-chevron-right"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SERVICE 4 -->
+    <div class="service-container" id="service-container-4">
+        <section id="service4" class="service-detail">
+            <div class="service-detail-content container">
+                <div class="row align-items-center">
+                    <div class="col-12 col-lg-6 service-text">
+                        <h2 class="service-element" data-order="1">Delivery Models</h2>
+                        <p class="service-lead service-element" data-order="3">Flexible delivery models: an end-to-end service or expert talent that joins your team, with an AI-powered Delivery Center.</p>
+
+                        <div class="service-features">
+                            <button type="button" class="feature-card service-element" data-order="4">
+                                <i class="fa-solid fa-industry feature-icon"></i>
+                                <h3>Smart Factory</h3>
+                                <p>Software, QA &amp; Testing and product support, end to end.</p>
+                            </button>
+                            <button type="button" class="feature-card service-element" data-order="4">
+                                <i class="fa-solid fa-users-gear feature-icon"></i>
+                                <h3>Delivery Center + AI</h3>
+                                <p>IT Staffing: we attract, assign and manage expert talent. You stay in control.</p>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-6 service-media">
+                        <img src="images/cubo-4.svg" alt="Solutions cube: the Delivery Models piece fits into level 4" class="lvl-cube service-element" data-order="2" loading="lazy" width="380" height="360">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="feature-modal" data-feature-modal aria-hidden="true" inert role="dialog" aria-modal="true" aria-label="Delivery Models">
+            <div class="feature-modal__backdrop" data-close></div>
+            <div class="feature-modal__panel">
+                <img src="images/logo_azul.png" alt="PersonalSoft logo" class="logo-mark js-home-logo" loading="lazy">
+                <button type="button" class="feature-modal__close">Go back</button>
+                <div class="feature-modal__content">
+                    <div class="modal-tabs">
+                        <div class="modal-tabs__nav" role="tablist">
+                            <button type="button" class="modal-tab__btn active" data-tab="0">Smart Factory</button>
+                            <button type="button" class="modal-tab__btn" data-tab="1">Delivery Center + AI</button>
+                        </div>
+                        <div class="modal-tabs__content">
+                            <div class="modal-tab__content active" data-tab-panel="0">
+                                <div class="modal-content-wrapper">
+                                    <div class="modal-content-left">
+                                        <h3>Smart Factory</h3>
+                                        <div class="modal-tab__slides">
+                                            <div class="modal-slide active">
+                                                <h4>What we do</h4>
+                                                <p>Software, QA &amp; Testing and product support, end to end.</p>
+                                            </div>
+                                            <div class="modal-slide">
+                                                <h4>Outcome</h4>
+                                                <p>Agility · Security · Efficiency · Digital acceleration</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-content-right">
+                                        <img src="images/modales/smart-factory.svg" alt="Software production line: development, QA and support" class="modal-graphic-image" loading="lazy">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-tab__content" data-tab-panel="1">
+                                <div class="modal-content-wrapper">
+                                    <div class="modal-content-left">
+                                        <h3>Delivery Center + AI</h3>
+                                        <div class="modal-tab__slides">
+                                            <div class="modal-slide active">
+                                                <h4>What we do</h4>
+                                                <p>IT Staffing: we attract, assign and manage expert talent. You stay in control.</p>
+                                            </div>
+                                            <div class="modal-slide">
+                                                <h4>Outcome</h4>
+                                                <p>Expert pool · Flexible hiring · C4E</p>
+                                            </div>
+                                            <div class="modal-slide">
+                                                <h4>Pure Agile · Maximum flexibility</h4>
+                                                <p>Ideal when the product is evolving and led by the in-house team. No fixed scope · Dedicated teams · Dynamic backlog.</p>
+                                            </div>
+                                            <div class="modal-slide">
+                                                <h4>Agile Control · Control + flexibility</h4>
+                                                <p>Ideal when there is partial scope with cost visibility. Fixed-time discovery · Re-estimation · Sprint by sprint.</p>
+                                            </div>
+                                            <div class="modal-slide">
+                                                <h4>Fixed Time and Cost · Maximum predictability</h4>
+                                                <p>Ideal when the scope is clear and predictability is the priority. Fixed scope, price and timeline · Change control.</p>
+                                            </div>
+                                            <div class="modal-slide">
+                                                <h4>Specialist team · 20% task acceleration</h4>
+                                                <p>Talent that joins your team · AI supervised by the specialist.</p>
+                                            </div>
+                                            <div class="modal-slide">
+                                                <h4>Engineering module · 30% across the lifecycle</h4>
+                                                <p>100% of agreed technical KPIs · End-to-end delivery · Semi-autonomous AI · Dedicated project manager.</p>
+                                            </div>
+                                            <!-- Corporate Deck v5 · slide 12 -->
+                                            <div class="modal-slide">
+                                                <h4>Our AI offering</h4>
+                                                <ul class="dc-cards dc-anim">
+                                                    <li><span class="dc-ico"><i class="fa-solid fa-lightbulb"></i></span><div><b>AI Discovery</b><span>From idea to a solution with approved scope and budget.</span></div></li>
+                                                    <li><span class="dc-ico"><i class="fa-solid fa-robot"></i></span><div><b>AI agent-driven development</b><span>Specialized agents produce code under human direction.</span></div></li>
+                                                    <li><span class="dc-ico"><i class="fa-solid fa-headset"></i></span><div><b>Next-gen managed services</b><span>From logging incidents to solving them before they happen.</span></div></li>
+                                                    <li><span class="dc-ico"><i class="fa-solid fa-building-columns"></i></span><div><b>Industry AI agencies</b><span>Banking, insurance and retail, with regulatory expertise.</span></div></li>
+                                                </ul>
+                                            </div>
+                                            <div class="modal-slide">
+                                                <h4>Innovation roadmap</h4>
+                                                <ol class="dc-steps dc-anim">
+                                                    <li><span class="dc-step">1</span><div><small>Level 1</small><b>Supervised AI</b><span>AI proposes, people approve.</span></div></li>
+                                                    <li><span class="dc-step">2</span><div><small>Level 2</small><b>Semi-autonomous AI</b><span>AI executes under continuous supervision.</span></div></li>
+                                                    <li><span class="dc-step">3</span><div><small>Level 3</small><b>Controlled autonomous AI</b><span>Optimizes speed, quality and cost.</span></div></li>
+                                                </ol>
+                                            </div>
+                                            <!-- Corporate Deck v5 · slide 14 -->
+                                            <div class="modal-slide">
+                                                <h4>Softers: people and agents on a single platform</h4>
+                                                <ul class="dc-agents dc-anim">
+                                                    <li><span class="dc-ico"><i class="fa-solid fa-calendar-check"></i></span><div><b>Cupido</b><span>Project manager · Project management</span></div></li>
+                                                    <li><span class="dc-ico"><i class="fa-solid fa-sitemap"></i></span><div><b>Arqui</b><span>Architect · Architecture</span></div></li>
+                                                    <li><span class="dc-ico"><i class="fa-solid fa-magnifying-glass-chart"></i></span><div><b>Epicúreo</b><span>Business analyst · Business analysis</span></div></li>
+                                                    <li><span class="dc-ico"><i class="fa-solid fa-code"></i></span><div><b>Mentor</b><span>Developer · Development</span></div></li>
+                                                    <li><span class="dc-ico"><i class="fa-solid fa-diagram-project"></i></span><div><b>Takumi</b><span>Process engineer · Processes</span></div></li>
+                                                    <li><span class="dc-ico"><i class="fa-solid fa-infinity"></i></span><div><b>Apolo</b><span>The whole team · The whole lifecycle</span></div></li>
+                                                </ul>
+                                                <p class="modal-slide__note"><i class="fa-solid fa-user-shield"></i> The agent increases capacity; the person keeps the decision. Nothing is delivered without human review.</p>
+                                            </div>
+                                            <div class="modal-slide">
+                                                <h4>Unified AI platform</h4>
+                                                <ul class="dc-tiles dc-anim">
+                                                    <li><i class="fa-solid fa-layer-group"></i><span>AI resource catalog</span></li>
+                                                    <li><i class="fa-solid fa-server"></i><span>MCP server and telemetry</span></li>
+                                                    <li><i class="fa-solid fa-plug"></i><span>Third-party connectors</span></li>
+                                                    <li><i class="fa-solid fa-microchip"></i><span>Claude models · GitHub Copilot</span></li>
+                                                </ul>
+                                            </div>
+                                            <div class="modal-slide">
+                                                <h4>Governance and knowledge</h4>
+                                                <ul class="dc-tiles dc-anim">
+                                                    <li><i class="fa-solid fa-scale-balanced"></i><span>Effective, responsible and ethical use</span></li>
+                                                    <li><i class="fa-solid fa-book-open"></i><span>Knowledge management</span></li>
+                                                    <li><i class="fa-solid fa-coins"></i><span>AI FinOps and shadow AI control</span></li>
+                                                    <li><i class="fa-solid fa-shield-halved"></i><span>Security</span></li>
+                                                </ul>
+                                            </div>
+                                            <div class="modal-slide">
+                                                <h4>Services portal</h4>
+                                                <ul class="dc-tiles dc-anim">
+                                                    <li><i class="fa-solid fa-chart-pie"></i><span>AI share of work</span></li>
+                                                    <li><i class="fa-solid fa-gauge-high"></i><span>Metrics by agent</span></li>
+                                                    <li><i class="fa-solid fa-users"></i><span>Team productivity</span></li>
+                                                    <li><i class="fa-solid fa-magnifying-glass"></i><span>Process gaps</span></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-content-right">
+                                        <img src="images/modales/delivery-center.svg" alt="AI-augmented specialist team that joins the client's team" class="modal-graphic-image" loading="lazy">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="button" class="modal-nav-button modal-nav-button--prev" aria-label="Previous"><i class="fa-solid fa-chevron-left"></i></button>
+                        <button type="button" class="modal-nav-button modal-nav-button--next" aria-label="Next"><i class="fa-solid fa-chevron-right"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CONTACT -->
+    <section id="commercial-card-section" class="commercial-card-section">
+        <div class="container">
+            <h2 class="commercial-title service-element" data-order="1">Let's talk</h2>
+            <div class="commercial-card">
+                <div class="commercial-card__photo service-element" data-order="2">
+                    <img src="images/Clara.png" alt="Clara Mónica Salazar Posada" width="200" height="237" loading="lazy">
+                </div>
+
+                <div class="commercial-card__info service-element" data-order="3">
+                    <h3 class="commercial-card__name">Clara Salazar</h3>
+                    <p class="commercial-card__position">Chief Sales Officer PersonalSoft</p>
+                    <div class="commercial-card__actions">
+                        <a class="commercial-card__btn"
+                           href="https://wa.me/573146929163?text=Hi%2C%20I%27m%20interested%20in%20learning%20about%20PersonalSoft%27s%20services"
+                           target="_blank" rel="noopener" aria-label="Contact via WhatsApp">Let's talk</a>
+                        <a class="commercial-card__btn"
+                           href="mailto:negocios@personalsoft.com?subject=Information%20about%20PersonalSoft%20services&amp;body=Hello%2C%0A%0AI%27m%20interested%20in%20learning%20more%20about%20PersonalSoft%27s%20services.%0A%0AI%20look%20forward%20to%20hearing%20from%20you.%0A%0ABest%20regards"
+                           aria-label="Send email">Send email</a>
+                        <a class="commercial-card__btn js-deck-link"
+                           href="#"
+                           target="_blank" rel="noopener" aria-label="Download Deck">Download Deck</a>
+                    </div>
+                </div>
+
+                <div class="commercial-card__qr-column service-element" data-order="4">
+                    <div class="commercial-card__qr">
+                        <img src="images/Clara_QR.png" alt="Contact QR code" loading="lazy">
+                    </div>
+                    <p class="commercial-card__qr-caption">Scan the QR code for more information</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11.1.14/swiper-bundle.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+    <script src="script.js" defer></script>
+</body>
+</html>
